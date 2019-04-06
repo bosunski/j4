@@ -1,0 +1,102 @@
+#snippet-box {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 30px;
+	margin: 28px 0 60px 0;
+	box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+.snippet-title {
+	color: rgb(26, 13, 171);
+	cursor: pointer;
+	font-family: arial, sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 21.6px;
+	text-align: left;
+	text-decoration: none;
+	text-decoration-color: rgb(26, 13, 171);
+	text-decoration-line: none;
+	text-decoration-style: solid;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.snippet-url {
+	color: rgb(0, 102, 33);
+	font-family: arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+	text-align: left;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.snippet-rich {
+	box-sizing: border-box;
+	clear: left;
+	color: rgb(68, 68, 68);
+	font-family: Arial, Verdana, Tahoma;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 25px;
+	display: inline;
+}
+
+.snippet-text {
+	color: rgb(84, 84, 84);
+	font-family: arial, sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 18.2px;
+	overflow-wrap: break-word;
+	text-align: left;
+	display: inline-block;
+}
+
+#titleRuler { visibility: hidden; white-space: nowrap; }
+#descriptionRuler { visibility: hidden; white-space: nowrap; }
+
+.progress {
+	display: flex;
+	height: 1rem;
+	overflow: hidden;
+	font-size: .75rem;
+	background-color: #e9ecef;
+	border-radius: .2rem;
+}
+
+.progress-bar-blue {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #0078C8;
+	transition: width 0.6s ease;
+}
+
+.progress-bar-red {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #ba5835;
+	transition: width 0.6s ease;
+}
+
+.progress-bar-yellow {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #e5b932;
+	transition: width 0.6s ease;
+}
