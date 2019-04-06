@@ -474,7 +474,7 @@ class ArticleModel extends AdminModel
 			// Convert the metadata field to an array.
 			$registry = new Registry($item->metadata);
 			$item->metadata = $registry->toArray();
-			$item->ogpg = $registry->toArray()['ogpg'];
+			$item->ogpg = $registry->toArray()['ogpg'] ?? [];
 
 			// Convert the images field to an array.
 			$registry = new Registry($item->images);
