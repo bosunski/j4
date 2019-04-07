@@ -18,7 +18,8 @@
 
 		<field
 			name="title"
-			type="text"
+			type="vmodel"
+			vmodel="article.title"
 			label="JGLOBAL_TITLE"
 			size="40"
 			required="true" />
@@ -899,7 +900,8 @@
 
 			<field
 				name="author"
-				type="text"
+				type="vmodel"
+				vmodel="author"
 				label="JAUTHOR"
 				size="20"
 			/>

@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded",
 				descriptionPixelLength: 0,
 				titleRuler: null,
 				descriptionRuler: null,
-				mounted: false
+				mounted: false,
+				author: null
+				// originalArticleTitle: this.article.title || null
 			}
 		},
 		computed: {
@@ -26,13 +28,16 @@ document.addEventListener("DOMContentLoaded",
 				a.innerText = this.articleTitle;
 				return a.offsetWidth;
 			},
+			dateCreated() {
+				return this.article.created ? (new Date(this.article.created)).toLocaleDateString() :  (new Date()).toLocaleDateString();
+			},
 			articleTitle: {
 				get() {
 					if (this.article.ogpg.seo_title) {
 						return this.article.ogpg.seo_title;
 					}
 
-					return this.article.title;
+					return null;
 				},
 				set(newValue) {
 					this.article.ogpg.seo_title = newValue;

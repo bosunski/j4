@@ -13,7 +13,7 @@
 	<div>
 		<div id="app-snippet-title" class="snippet-title">
 			<font style="vertical-align: inherit;">
-				<font style="vertical-align: inherit;">{{ articleTitle || 'Title will appear here' }}</font>
+				<font style="vertical-align: inherit;">{{ articleTitle || article.title || 'Title will appear here' }}</font>
 			</font>
 		</div>
 	</div>
@@ -37,16 +37,16 @@
 <!--		</font>-->
 <!--	</div>-->
 	<div class="snippet-text">
-<!--		<span id="app-snippet-author" style="display: inline;">-->
-<!--			<font style="vertical-align: inherit;">-->
-<!--				<font style="vertical-align: inherit;">John Doe -</font>-->
-<!--			</font>-->
-<!--		</span>-->
-<!--		<span id="app-snippet-date" style="display: inline;">-->
-<!--			<font style="vertical-align: inherit;">-->
-<!--				<font style="vertical-align: inherit;">31.03.2019 -</font>-->
-<!--			</font>-->
-<!--		</span>-->
+		<span v-if="author" id="app-snippet-author" style="display: inline;">
+			<font style="vertical-align: inherit;">
+				<font style="vertical-align: inherit;">{{ author }} - </font>
+			</font>
+		</span>
+		<span v-if="author" id="app-snippet-date" style="display: inline;">
+			<font style="vertical-align: inherit;">
+				<font style="vertical-align: inherit;">{{ dateCreated }} - </font>
+			</font>
+		</span>
 		<span id="app-snippet-text" class="snippet-text" style="display: inline;">
 			<font style="vertical-align: inherit;">
 				<font style="vertical-align: inherit;">{{ articleDescription || 'Article description will appear here!'}}</font>

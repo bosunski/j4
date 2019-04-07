@@ -40,7 +40,7 @@ $layout  = $isModal ? 'modal' : 'edit';
 $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 ?>
 
-<form action="<?php echo Route::_('index.php?option=com_content&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
+<form id="seo" action="<?php echo Route::_('index.php?option=com_content&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
 
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
 
@@ -102,7 +102,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 		<?php endif; ?>
 
 		<?php if ($params->get('show_publishing_options', 1) == 1) : ?>
-			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'seo', Text::_('SEO')); ?>
+			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'seoTab', Text::_('SEO')); ?>
 			<div class="row">
 				<div class="col-md-6">
 					<?php echo LayoutHelper::render('joomla.edit.ogpg', $this); ?>
