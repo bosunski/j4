@@ -92,11 +92,11 @@ class PlgContentSeo extends CMSPlugin
 		 */
 		$uri = \Joomla\CMS\Uri\Uri::base();
 		$document->setMetaData('twitter:card', "summary");
-		if (!empty($this->ogpg['twitter_description']))
-			$document->setMetaData('twitter:description', $this->ogpg['twitter_description']);
+//		if (!empty($this->ogpg['twitter_description']))
+			$document->setMetaData('twitter:description', $this->ogpg['twitter_description'] ?? $item->metadesc ?? '');
 
-		if (!empty($this->ogpg['twitter_title']))
-			$document->setMetaData('twitter:title', $this->ogpg['twitter_title']);
+//		if (!empty($this->ogpg['twitter_title']))
+			$document->setMetaData('twitter:title', $this->ogpg['twitter_title'] ?? $item->title);
 
 		$document->setMetaData('twitter:site', $this->getTwitterHandle());
 
@@ -139,13 +139,14 @@ class PlgContentSeo extends CMSPlugin
 		<meta property="og:image:height" content="348" />
 		 */
 
+		$uri = \Joomla\CMS\Uri\Uri::base();
+
 		$document->setMetaData('og:type', "article");
 		$document->setMetaData('og:locale', $this->language->site);
 
 		$document->setMetaData('og:title', $this->ogpg['facebook_title'] ?? $item->title);
 		$document->setMetaData('og:description', $this->ogpg['og_description'] ?? $item->metadesc);
-		$document->setMetaData('og:url', "https://bosunski.fun");
-		$document->setMetaData('og:url', "https://bosunski.fun");
+		$document->setMetaData('og:url', "$uri");
 		$document->setMetaData('og:site_name', Factory::getApplication()->get('sitename'));
 		$document->setMetaData('article:publisher', $this->getFacebookLink());
 
@@ -155,8 +156,6 @@ class PlgContentSeo extends CMSPlugin
 		$document->setMetaData('og:updated_time', $item->modified);
 
 		$image = $this->ogpg['og_image'] ?? null;
-
-		$uri = \Joomla\CMS\Uri\Uri::base();
 
 		$document->setMetaData('og:image', $uri . $image);
 		$document->setMetaData('og:image:secure_url', $uri . $image);
