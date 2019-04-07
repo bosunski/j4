@@ -93,10 +93,10 @@ class PlgContentSeo extends CMSPlugin
 		$uri = \Joomla\CMS\Uri\Uri::base();
 		$document->setMetaData('twitter:card', "summary");
 //		if (!empty($this->ogpg['twitter_description']))
-			$document->setMetaData('twitter:description', $this->ogpg['twitter_description'] ?? $item->metadesc ?? '');
+		$document->setMetaData('twitter:description', $this->ogpg['twitter_description'] ?? $item->metadesc ?? '');
 
 //		if (!empty($this->ogpg['twitter_title']))
-			$document->setMetaData('twitter:title', $this->ogpg['twitter_title'] ?? $item->title);
+		$document->setMetaData('twitter:title', $this->ogpg['twitter_title'] ?? $this->ogpg['seo_title'] ?? $item->title);
 
 		$document->setMetaData('twitter:site', $this->getTwitterHandle());
 
@@ -144,7 +144,7 @@ class PlgContentSeo extends CMSPlugin
 		$document->setMetaData('og:type', "article");
 		$document->setMetaData('og:locale', $this->language->site);
 
-		$document->setMetaData('og:title', $this->ogpg['facebook_title'] ?? $item->title);
+		$document->setMetaData('og:title', $this->ogpg['facebook_title'] ?? $this->ogpg['seo_title'] ?? $item->title);
 		$document->setMetaData('og:description', $this->ogpg['og_description'] ?? $item->metadesc);
 		$document->setMetaData('og:url', "$uri");
 		$document->setMetaData('og:site_name', Factory::getApplication()->get('sitename'));
