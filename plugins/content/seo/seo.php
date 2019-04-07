@@ -255,7 +255,7 @@ class PlgContentSeo extends CMSPlugin
 	 */
 	protected function getSchemaScript(): string
 	{
-		$host = \Joomla\CMS\Uri\Uri::base(true);
+		$host = \Joomla\CMS\Uri\Uri::base();
 
 		$aliases = [];
 
