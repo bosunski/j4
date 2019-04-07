@@ -74,10 +74,10 @@ class PlgContentSeo extends CMSPlugin
 		$this->language = $this->getLanguageConfig();
 		$this->ogpg = (array)$item->metadata->get('ogpg');
 
-		$this->setTwitterCards($document, $item)
+		$this->setCanonicalURL($document, $item)
 			->setFacebookOgpg($document, $item)
-			->addSchemaContext($document, $item)
-			->setCanonicalURL($document, $item);
+			->setTwitterCards($document, $item)
+			->addSchemaContext($document, $item);
 
 		return $document;
 	}
@@ -162,6 +162,7 @@ class PlgContentSeo extends CMSPlugin
 		$document->setMetaData('og:url', "https://bosunski.fun");
 		$document->setMetaData('og:site_name', Factory::getApplication()->get('sitename'));
 		$document->setMetaData('article:publisher', $this->getFacebookLink());
+
 //		$document->setMetaData('article:section', $item->category);
 		$document->setMetaData('article:published_time', $item->publish_up);
 		$document->setMetaData('article:published_time', $item->modified);
@@ -188,7 +189,7 @@ class PlgContentSeo extends CMSPlugin
 		if (isset($this->ogpg['canonical_url']))
 			$document->setMetaData('canonical', $this->ogpg['canonical_url']);
 		else
-			$document->setMetaData('canonical', Route::_(''));
+			$document->setMetaData('canonical', \Joomla\CMS\Uri\Uri::base());
 
 		return $this;
 	}
