@@ -8,6 +8,7 @@
  */
 ?>
 
+<p>Start typing to see insights</p>
 <div id="snippet-box" class="margin-below" style="display: block;">
 	<div>
 		<div id="app-snippet-title" class="snippet-title">

@@ -953,7 +953,7 @@
 					name="seo_title"
 					type="vmodel"
 					vmodel="articleTitle"
-					label="Title"
+					label="SEO Title"
 					baron="title"
 					description="Title you want to use for SEO"
 					size="20"

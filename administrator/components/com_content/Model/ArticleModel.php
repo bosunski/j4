@@ -456,6 +456,15 @@ class ArticleModel extends AdminModel
 		return true;
 	}
 
+	protected function getFreshOgpgData()
+	{
+		$ogpg = new \stdClass();
+
+		$ogpg->seo_title = $ogpg->seo_description = "";
+
+		return $ogpg;
+	}
+
 	/**
 	 * Method to get a single record.
 	 *
@@ -474,7 +483,7 @@ class ArticleModel extends AdminModel
 			// Convert the metadata field to an array.
 			$registry = new Registry($item->metadata);
 			$item->metadata = $registry->toArray();
-			$item->ogpg = $registry->toArray()['ogpg'] ?? [];
+			$item->ogpg = $registry->toArray()['ogpg'] ?? $this->getFreshOgpgData();
 
 			// Convert the images field to an array.
 			$registry = new Registry($item->images);

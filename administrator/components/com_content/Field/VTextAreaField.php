@@ -44,7 +44,7 @@ class VTextAreaField extends TextareaField
 	public function getLabel()
 	{
 		// Requires vote plugin enabled
-		return PluginHelper::isEnabled('content', 'vote') ? parent::getLabel() : null;
+		return '<label id="' . $this->name . '-lbl" for="' . $this->id . '">' . $this->getTitle() . '</label>';
 	}
 
 	/**

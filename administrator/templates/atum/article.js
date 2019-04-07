@@ -15,9 +15,17 @@ document.addEventListener("DOMContentLoaded",
 				article: currentArticle || {},
 				titlePixelLength: 0,
 				descriptionPixelLength: 0,
+				titleRuler: null,
+				descriptionRuler: null,
+				mounted: false
 			}
 		},
 		computed: {
+			comp() {
+				let a = this.$refs['titleRuler'];
+				a.innerText = this.articleTitle;
+				return a.offsetWidth;
+			},
 			articleTitle: {
 				get() {
 					if (this.article.ogpg.seo_title) {
@@ -55,15 +63,30 @@ document.addEventListener("DOMContentLoaded",
 		},
 		watch: {
 			articleTitle(newValue) {
-				let ruler = this.$refs.titleRuler;
-				ruler.innerText = newValue;
-				this.titlePixelLength = ruler.offsetWidth;
+				this.computePixelLengthFroTitle(newValue);
 			},
 			articleDescription(newValue) {
+				this.computePixelLengthFroDescription(newValue);
+			}
+		},
+		methods: {
+			computePixelLengthFroTitle(newValue = null) {
+				let ruler = this.$refs.titleRuler;
+				ruler.innerHTML = newValue || this.articleTitle;
+				this.titlePixelLength = ruler.offsetWidth > 0 ? ruler.offsetWidth : this.articleTitle.length;
+			},
+			computePixelLengthFroDescription(newValue) {
 				let ruler = this.$refs.descriptionRuler;
-				ruler.innerText = newValue;
+				ruler.innerText = newValue || this.articleDescription;
 				this.descriptionPixelLength = ruler.offsetWidth;
 			}
+		},
+		mounted() {
+			this.titleRuler = this.$refs.titleRuler;
+			this.titleRuler.innerHTML = this.articleTitle;
+			this.titlePixelLength = this.titleRuler.offsetWidth;
+			this.descriptionRuler = this.$refs.descriptionRuler;
+			this.mounted = true;
 		}
 	})
 );
