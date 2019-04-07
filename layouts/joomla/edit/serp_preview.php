@@ -19,9 +19,9 @@
 	</div>
 	<div>
 		<div id="app-snippet-url" class="snippet-url">
-<!--			<font style="vertical-align: inherit;">-->
-<!--				<font style="vertical-align: inherit;">bosunski.fun</font>-->
-<!--			</font>-->
+			<font style="vertical-align: inherit;">
+				<font style="vertical-align: inherit;">{{ baseUri }} <span v-if="article.alias">› {{ computedAlias }}</span></font>
+			</font>
 		</div>
 	</div>
 <!--	<div id="app-snippet-rich" class="snippet-rich" style="clear: left; font-size: 13px; display: block;">-->

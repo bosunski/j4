@@ -26,7 +26,8 @@
 
 		<field
 			name="alias"
-			type="text"
+			type="vmodel"
+			vmodel="article.alias"
 			label="JFIELD_ALIAS_LABEL"
 			hint="JFIELD_ALIAS_PLACEHOLDER"
 			size="40"

@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded",
 				titleRuler: null,
 				descriptionRuler: null,
 				mounted: false,
-				author: null
+				author: null,
+				baseUri: Joomla.getOptions('seo').baseUri
 				// originalArticleTitle: this.article.title || null
 			}
 		},
@@ -27,6 +28,9 @@ document.addEventListener("DOMContentLoaded",
 				let a = this.$refs['titleRuler'];
 				a.innerText = this.articleTitle;
 				return a.offsetWidth;
+			},
+			computedAlias() {
+				return this.article.alias;
 			},
 			dateCreated() {
 				return this.article.created ? (new Date(this.article.created)).toLocaleDateString() :  (new Date()).toLocaleDateString();

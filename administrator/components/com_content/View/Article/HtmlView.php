@@ -112,10 +112,12 @@ class HtmlView extends BaseHtmlView
 
 		HTMLHelper::_('behavior.core');
 		HTMLHelper::_('behavior.keepalive');
+		$config = Factory::getContainer()->get('config');
 
 		$this->document->addScript('https://cdn.jsdelivr.net/npm/vue/dist/vue.js');
 		$this->document->addScriptOptions('seo', [
 			'article' => $this->item,
+			'baseUri' => ($_SERVER['HTTPS'] === "on" ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'],
 		]);
 
 		$this->document->addScript("/administrator/templates/atum/article.js");
