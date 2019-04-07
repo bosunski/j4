@@ -140,29 +140,29 @@ class PlgContentSeo extends CMSPlugin
 		 */
 
 		$uri = \Joomla\CMS\Uri\Uri::base();
+		$attribute = "property";
+		$document->setMetaData('og:type', "article", $attribute);
+		$document->setMetaData('og:locale', $this->language->site, $attribute);
 
-		$document->setMetaData('og:type', "article");
-		$document->setMetaData('og:locale', $this->language->site);
-
-		$document->setMetaData('og:title', $this->ogpg['facebook_title'] ?? $this->ogpg['seo_title'] ?? $item->title);
-		$document->setMetaData('og:description', $this->ogpg['og_description'] ?? $item->metadesc);
-		$document->setMetaData('og:url', "$uri");
-		$document->setMetaData('og:site_name', Factory::getApplication()->get('sitename'));
-		$document->setMetaData('article:publisher', $this->getFacebookLink());
+		$document->setMetaData('og:title', $this->ogpg['facebook_title'] ?? $this->ogpg['seo_title'] ?? $item->title, $attribute);
+		$document->setMetaData('og:description', $this->ogpg['og_description'] ?? $item->metadesc, $attribute);
+		$document->setMetaData('og:url', "$uri", $attribute);
+		$document->setMetaData('og:site_name', Factory::getApplication()->get('sitename'), $attribute);
+		$document->setMetaData('article:publisher', $this->getFacebookLink(), $attribute);
 
 //		$document->setMetaData('article:section', $item->category);
-		$document->setMetaData('article:published_time', $item->publish_up);
-		$document->setMetaData('article:published_time', $item->modified);
-		$document->setMetaData('og:updated_time', $item->modified);
+		$document->setMetaData('article:published_time', $item->publish_up, $attribute);
+		$document->setMetaData('article:published_time', $item->modified, $attribute);
+		$document->setMetaData('og:updated_time', $item->modified, $attribute);
 
 		$image = $this->ogpg['og_image'] ?? null;
 
-		$document->setMetaData('og:image', $uri . $image);
-		$document->setMetaData('og:image:secure_url', $uri . $image);
+		$document->setMetaData('og:image', $uri . $image, $attribute);
+		$document->setMetaData('og:image:secure_url', $uri . $image, $attribute);
 
 		if ($image) {
-			$document->setMetaData('og:image:height', 348);
-			$document->setMetaData('og:image:width', 1024);
+			$document->setMetaData('og:image:height', 348, $attribute);
+			$document->setMetaData('og:image:width', 1024, $attribute);
 		}
 
 
