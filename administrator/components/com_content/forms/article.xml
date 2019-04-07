@@ -966,7 +966,7 @@
 					name="seo_description"
 					type="vtextarea"
 					vmodel="articleDescription"
-					label="Description"
+					label="SEO Description"
 					description="Description for SEO"
 					filter="string"
 					cols="30"
